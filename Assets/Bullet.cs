@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.tag == "Target")
+        if (collision.gameObject.tag == "Target")
         {
             collision.gameObject.SetActive(false);
             Destroy(gameObject);
