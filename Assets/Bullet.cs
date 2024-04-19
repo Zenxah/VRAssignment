@@ -5,18 +5,21 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float life = 5;
+    GameObject targetObject;
 
     void Awake()
     {
         Destroy(gameObject, life);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Target")
         {
-            collision.gameObject.SetActive(false);
-            Destroy(gameObject);
+            targetObject = collision.gameObject;
         }
-    }
+
+        targetObject.SetActive(false);
+        Destroy(gameObject);
+    }            
 }
