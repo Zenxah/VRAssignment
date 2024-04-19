@@ -12,14 +12,15 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, life);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.tag == "Target")
+        if (collider.gameObject.tag == "Target")
         {
-            targetObject = collision.gameObject;
+            targetObject = collider.gameObject;
         }
 
         targetObject.SetActive(false);
         Destroy(gameObject);
     }            
+
 }
